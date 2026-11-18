@@ -1,8 +1,8 @@
 // Offline support: the app shell is cached on install; exercise photos and fonts are cached the first time they load.
 // Bump VERSION whenever you change app files so phones pick up the update.
-const VERSION = "fc-v1";
-const SHELL = ["./", "index.html", "styles.css", "manifest.webmanifest", "js/app.js", "js/ai.js", "js/store.js", "js/profile.js", "js/prompts.js",
-  "js/foods.js", "js/exercises.js", "data/exercise-media.json", "icons/icon-180.png", "icons/icon-192.png", "icons/icon-512.png"];
+const VERSION = "fc-v2";
+const SHELL = ["./", "index.html", "styles.css", "manifest.webmanifest", "app.js", "ai.js", "store.js", "profile.js", "prompts.js",
+  "foods.js", "exercises.js", "exercise-media.json", "icon-180.png", "icon-192.png", "icon-512.png"];
 
 self.addEventListener("install", e => { e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => {

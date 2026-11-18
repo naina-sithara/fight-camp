@@ -694,7 +694,7 @@ function renderOnboarding(){
   const prog = `<div class="ob-prog">${Array.from({ length: total }, (_, i) => `<i class="${i <= s ? "on" : ""}"></i>`).join("")}</div>`;
   let html = "";
   if (s === 0){
-    html = `${prog}<img src="icons/icon-192.png" width="68" height="68" alt="" style="border-radius:22px"><div><h1>Your personal fight camp</h1><p class="sub">A coach that knows your body, your training and your food. Setup takes about 4 minutes, and every number after that is built for you.</p></div>
+    html = `${prog}<img src="icon-192.png" width="68" height="68" alt="" style="border-radius:22px"><div><h1>Your personal fight camp</h1><p class="sub">A coach that knows your body, your training and your food. Setup takes about 4 minutes, and every number after that is built for you.</p></div>
       <div class="field"><span>Pick a look (you can change it later)</span><div class="themes">${themePicks(store.get("theme", "blush"))}</div></div>
       <div class="ob-foot"><button class="btn block" id="next">Start setup</button></div>`;
   } else if (s <= STEPS.length){
@@ -762,7 +762,7 @@ function readFields(){ app.querySelectorAll("[data-f]").forEach(i => { ob.data[i
 
 /* ---------------- boot ---------------- */
 applyTheme();
-fetch("data/exercise-media.json").then(r => r.json()).then(j => { MEDIA = j; if (profile() && tab === "train" && !sheetEl) render(); }).catch(() => {});
+fetch("exercise-media.json").then(r => r.json()).then(j => { MEDIA = j; if (profile() && tab === "train" && !sheetEl) render(); }).catch(() => {});
 if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
 document.addEventListener("visibilitychange", () => { if (!document.hidden && profile() && !sheetEl && tab === "today") render(); });
 render();
